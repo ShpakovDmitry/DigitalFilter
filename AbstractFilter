@@ -1,0 +1,29 @@
+/* -*-c++-*- 
+ *
+ *    file: AbstractFilter
+ *  author: ShpakovDmitry
+ *    date: 2023-6-15
+ * licence: CC0
+ * summary: Digital filter interface class. Filter parameter will be set in
+ *          derived classes.
+ *
+ */
+
+#ifndef _ABSTRACT_FILTER_
+#define _ABSTRACT_FILTER_
+
+namespace DigitalFilter {
+
+    class AbstractFilter {
+        public:
+            virtual void updateInput(float input) = 0;
+            virtual float getOutput() const = 0;
+            virtual bool isready() const = 0;
+            virtual void reset() = 0;
+            ~AbstractFilter() {};
+    };
+
+} // namespace DigitalFilter
+
+#endif//_ABSTRACT_FILTER_
+
