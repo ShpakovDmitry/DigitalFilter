@@ -19,7 +19,7 @@ namespace DigitalFilter {
             virtual float update(float input) = 0;
             virtual bool isready() const = 0;
             virtual void reset() = 0;
-            ~AbstractFilter() {};
+            virtual ~AbstractFilter() {};
     };
 
 } // namespace DigitalFilter
