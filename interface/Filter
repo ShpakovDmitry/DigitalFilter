@@ -12,6 +12,8 @@
 #ifndef _FILTER_HPP_
 #define _FILTER_HPP_
 
+#include <vector>
+
 namespace Filters {
 
     class Filter {
@@ -19,6 +21,7 @@ namespace Filters {
             virtual ~Filter() {};
 
             virtual float filterSample(float sample) = 0;
+            virtual std::vector<float> filterSamples(std::vector<float> &samples) = 0;
             virtual bool isReady() = 0;
             virtual void reset() = 0;
         private:
