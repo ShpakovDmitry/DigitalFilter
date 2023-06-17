@@ -1,0 +1,37 @@
+/* -*-c++-*- 
+ *
+ *    file: FIRFilter
+ *  author: ShpakovDmitry
+ *    date: 2023-6-17
+ * licence: CC0
+ * summary: Finite Impulse Response digital filter class.
+ *
+ */
+
+#ifndef _FIRFILTER_
+#define _FIRFILTER_
+
+#include "../interface/Filter"
+#include <vector>
+
+namespace Filters {
+
+    class FIRFilter : public Filter {
+        public:
+            FIRFilter();
+            virtual ~FIRFilter() {};
+
+            virtual float filterSample(float sample) override;
+
+            void setCoefficients(const std::vector<float> &coefficients);
+    
+        private:
+            std::vector<float> m_coefficients;
+            std::vector<float> m_delayLine;
+    
+    };
+
+} // namespace Filters
+
+#endif//_FIRFILTER_
+
