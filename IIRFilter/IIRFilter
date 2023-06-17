@@ -1,0 +1,40 @@
+/* -*-c++-*- 
+ *
+ *    file: IIRFilter
+ *  author: ShpakovDmitry
+ *    date: 2023-6-17
+ * licence: CC0
+ * summary: Infinite Impulse Response digital filter class.
+ *
+ */
+
+#ifndef _IIRFILTER_
+#define _IIRFILTER_
+
+#include "../interface/Filter"
+#include <vector>
+
+namespace Filters {
+
+    class IIRFilter : public Filter {
+        public:
+            IIRFilter();
+            virtual ~IIRFilter() {};
+
+            virtual float filterSample(float sample) override;
+
+            void setCoefficients(const std::vector<float> &feedforwardCoefficients,
+                                 const std::vector<float> &feedbackCoefficients);
+    
+        private:
+            std::vector<float> m_feedforwardCoefficients;
+            std::vector<float> m_feedbackCoefficients;
+            std::vector<float> m_inputDelayLine;
+            std::vector<float> m_outputDelayLine;
+    
+    };
+
+} // namespace Filters
+
+#endif//_IIRFILTER_
+
