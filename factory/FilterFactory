@@ -1,6 +1,6 @@
 /* -*-c++-*- 
  *
- *    file: FilterFactory.hpp
+ *    file: FilterFactory
  *  author: ShpakovDmitry
  *    date: 2023-6-17
  * licence: CC0
@@ -8,10 +8,10 @@
  *
  */
 
-#ifndef _FILTER_FACTORY_HPP
-#define _FILTER_FACTORY_HPP
+#ifndef _FILTER_FACTORY_
+#define _FILTER_FACTORY_
 
-#include "../filters.hpp"
+#include "../filters"
 
 class FilterFactory {
     public:
@@ -21,5 +21,5 @@ class FilterFactory {
 };
 
 
-#endif//_FILTER_FACTORY_HPP
+#endif//_FILTER_FACTORY_
 

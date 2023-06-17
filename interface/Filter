@@ -1,6 +1,6 @@
 /* -*-c++-*- 
  *
- *    file: Filter.hpp
+ *    file: Filter
  *  author: ShpakovDmitry
  *    date: 2023-6-15
  * licence: CC0
@@ -9,8 +9,8 @@
  *
  */
 
-#ifndef _FILTER_HPP_
-#define _FILTER_HPP_
+#ifndef _FILTER_
+#define _FILTER_
 
 namespace Filters {
 
@@ -24,5 +24,5 @@ namespace Filters {
 
 } // namespace Filters
 
-#endif//_FILTER_HPP_
+#endif//_FILTER_
 
