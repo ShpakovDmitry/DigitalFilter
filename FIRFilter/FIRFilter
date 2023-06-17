@@ -22,12 +22,15 @@ namespace Filters {
             virtual ~FIRFilter() {};
 
             virtual float filterSample(float sample) override;
+            virtual bool isReady() override;
+            virtual void reset() override;
 
             void setCoefficients(const std::vector<float> &coefficients);
     
         private:
             std::vector<float> m_coefficients;
             std::vector<float> m_delayLine;
+            bool m_isReady;
     
     };
 

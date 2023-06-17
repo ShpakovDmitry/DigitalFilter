@@ -22,6 +22,8 @@ namespace Filters {
             virtual ~IIRFilter() {};
 
             virtual float filterSample(float sample) override;
+            virtual bool isReady() override;
+            virtual void reset() override;
 
             void setCoefficients(const std::vector<float> &feedforwardCoefficients,
                                  const std::vector<float> &feedbackCoefficients);
@@ -31,6 +33,7 @@ namespace Filters {
             std::vector<float> m_feedbackCoefficients;
             std::vector<float> m_inputDelayLine;
             std::vector<float> m_outputDelayLine;
+            bool m_isReady;
     
     };
 
