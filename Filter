@@ -1,6 +1,6 @@
 /* -*-c++-*- 
  *
- *    file: AbstractFilter
+ *    file: Filter
  *  author: ShpakovDmitry
  *    date: 2023-6-15
  * licence: CC0
@@ -9,20 +9,20 @@
  *
  */
 
-#ifndef _ABSTRACT_FILTER_
-#define _ABSTRACT_FILTER_
+#ifndef _FILTER_
+#define _FILTER_
+
+#include <vector>
 
 namespace DigitalFilter {
 
-    class AbstractFilter {
+    class Filter {
         public:
-            virtual float update(float input) = 0;
-            virtual bool isready() const = 0;
-            virtual void reset() = 0;
-            virtual ~AbstractFilter() {};
+            virtual ~Filter() {}
+            virtual float filterSample(float sample) = 0;
+            virtual std::vector<float> filterSamples(std::vector<float> &samples) = 0;
     };
 
 } // namespace DigitalFilter
 
-#endif//_ABSTRACT_FILTER_
-
+#endif//_FILTER_
