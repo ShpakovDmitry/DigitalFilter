@@ -1,6 +1,6 @@
 /* -*-c++-*- 
  *
- *    file: filters
+ *    file: filters.hpp
  *  author: ShpakovDmitry
  *    date: 2023-6-17
  * licence: CC0
@@ -8,10 +8,10 @@
  *
  */
 
-#ifndef _FILTERS_
-#define _FILTERS_
+#ifndef _FILTERS_HPP_
+#define _FILTERS_HPP_
 
 
 
-#endif//_FILTERS_
+#endif//_FILTERS__HPP_
 
