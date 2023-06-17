@@ -18,7 +18,7 @@ namespace Filters {
         public:
             virtual ~Filter() {};
 
-            virtual float filterSample(float sample, float dT = 0.0f) = 0;
+            virtual float filterSample(float sample) = 0;
         private:
     };
 
