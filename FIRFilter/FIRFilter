@@ -22,7 +22,7 @@ namespace Filters {
             virtual ~FIRFilter() {};
 
             virtual float filterSample(float sample) override;
-            virtual std::vector<float> filterSamples(std::vector<float> &samples) override;
+            virtual std::vector<float> filterSamples(const std::vector<float> &samples) override;
             virtual bool isReady() override;
             virtual void reset() override;
 
