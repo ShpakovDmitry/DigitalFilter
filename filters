@@ -13,6 +13,7 @@
 
 #include "factory/FilterFactory"
 #include "FIRFilter/FIRFilter"
+#include "IIRFilter/IIRFilter"
 
 #endif//_FILTERS_
 

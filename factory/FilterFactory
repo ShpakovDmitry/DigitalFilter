@@ -13,6 +13,7 @@
 
 #include "../interface/Filter"
 #include "../FIRFilter/FIRFilter"
+#include "../IIRFilter/IIRFilter"
 #include <memory>
 
 namespace Filters {
@@ -21,6 +22,9 @@ namespace Filters {
         public:
             static std::unique_ptr<Filter> createFIRFilter(const std::vector<float> &coefficients);
             static std::unique_ptr<Filter> createSimpleMovingAverageFilter(unsigned numSamples);
+
+            static std::unique_ptr<Filter> createIIRFilter(const std::vector<float> &feedfrontCoefficients,
+                                                           const std::vector<float> &feedbackCoefficients);
         private:
     
     };
