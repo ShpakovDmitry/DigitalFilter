@@ -27,6 +27,7 @@ int main(int argc, char *argv[]) {
     unique_ptr<Filter> SMAFilter = FilterFactory::createSMAFilter(SMA_SAMPLES_TO_FILTER);
 
     Cascade cascade;
+    // filter sample through EMA filter and then through SMA filter
     cascade.addFilter(std::move(EMAFilter));
     cascade.addFilter(std::move(SMAFilter));
 
