@@ -12,7 +12,7 @@
 
 namespace Filters {
 
-    std::unique_ptr<Filter> createFIRFilter(const std::vector<float> &coefficients) {
+    std::unique_ptr<Filter> FilterFactory::createFIRFilter(const std::vector<float> &coefficients) {
         std::unique_ptr<FIRFilter> filter = std::make_unique<FIRFilter>(coefficients);
     
         return filter;
