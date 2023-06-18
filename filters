@@ -14,6 +14,7 @@
 #include "factory/FilterFactory"
 #include "FIRFilter/FIRFilter"
 #include "IIRFilter/IIRFilter"
+#include "Cascade/Cascade"
 
 #endif//_FILTERS_
 
