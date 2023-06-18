@@ -22,7 +22,7 @@ namespace Filters {
         public:
             //FIR filters
             static std::unique_ptr<Filter> createFIRFilter(const std::vector<float> &coefficients);
-            static std::unique_ptr<Filter> createSimpleMovingAverageFilter(unsigned numSamples);
+            static std::unique_ptr<Filter> createSMAFilter(unsigned numSamples);
 
             //IIR filters
             static std::unique_ptr<Filter> createIIRFilter(const std::vector<float> &feedfrontCoefficients,
