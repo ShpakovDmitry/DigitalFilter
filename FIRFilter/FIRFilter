@@ -12,6 +12,7 @@
 #define _FIRFILTER_
 
 #include "../interface/Filter"
+#include <deque>
 #include <vector>
 
 namespace Filters {
@@ -19,18 +20,19 @@ namespace Filters {
     class FIRFilter : public Filter {
         public:
             FIRFilter();
+            FIRFilter(const std::vector<float> &coefficients);
             virtual ~FIRFilter() {};
 
             virtual float filterSample(float sample) override;
             virtual std::vector<float> filterSamples(const std::vector<float> &samples) override;
-            virtual bool isReady() override;
+
             virtual void reset() override;
 
             void setCoefficients(const std::vector<float> &coefficients);
     
         private:
             std::vector<float> m_coefficients;
-            std::vector<float> m_delayLine;
+            std::deque<float> m_delayLine;
             bool m_isReady;
     
     };

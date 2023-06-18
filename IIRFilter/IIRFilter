@@ -23,7 +23,7 @@ namespace Filters {
 
             virtual float filterSample(float sample) override;
             virtual std::vector<float> filterSamples(const std::vector<float> &samples) override;
-            virtual bool isReady() override;
+
             virtual void reset() override;
 
             void setCoefficients(const std::vector<float> &feedforwardCoefficients,
