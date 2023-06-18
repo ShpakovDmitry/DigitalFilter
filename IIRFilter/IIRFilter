@@ -20,6 +20,8 @@ namespace Filters {
     class IIRFilter : public Filter {
         public:
             IIRFilter();
+            IIRFilter(const std::vector<float> &feedforwardCoefficients,
+                      const std::vector<float> &feedbackCoefficients);
             virtual ~IIRFilter() {};
 
             virtual float filterSample(float sample) override;
