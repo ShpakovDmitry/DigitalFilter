@@ -1,0 +1,39 @@
+/* -*-c++-*- 
+ *
+ *    file: Cascade
+ *  author: ShpakovDmitry
+ *    date: 2023-6-18
+ * licence: CC0
+ * summary: Class for Filter cascading.
+ *
+ */
+
+#ifndef _CASCADE_
+#define _CASCADE_
+
+#include "../interface/Filter"
+#include <vector>
+
+namespace Filters {
+
+    class Cascade : public Filter {
+        public:
+            Cascade();
+            virtual ~Cascade() {};
+
+            virtual float filterSample(float sample) override;
+            virtual std::vector<float> filterSamples(const std::vector<float> &samples) override;
+
+            virtual void reset() override;
+
+            void addFilter(Filter *filter);
+    
+        private:
+            std::vector<Filter *> m_filters;
+
+    };
+
+} // namespace Filters
+
+#endif//_CASCADE_
+
