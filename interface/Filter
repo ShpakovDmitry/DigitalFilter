@@ -22,7 +22,6 @@ namespace Filters {
 
             virtual float filterSample(float sample) = 0;
             virtual std::vector<float> filterSamples(const std::vector<float> &samples) = 0;
-            virtual bool isReady() = 0;
             virtual void reset() = 0;
         private:
     };
