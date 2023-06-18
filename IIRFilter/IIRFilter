@@ -12,6 +12,7 @@
 #define _IIRFILTER_
 
 #include "../interface/Filter"
+#include <deque>
 #include <vector>
 
 namespace Filters {
@@ -32,8 +33,8 @@ namespace Filters {
         private:
             std::vector<float> m_feedforwardCoefficients;
             std::vector<float> m_feedbackCoefficients;
-            std::vector<float> m_inputDelayLine;
-            std::vector<float> m_outputDelayLine;
+            std::deque<float> m_inputDelayLine;
+            std::deque<float> m_outputDelayLine;
             bool m_isReady;
     
     };
