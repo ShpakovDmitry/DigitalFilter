@@ -35,6 +35,20 @@ namespace Filters {
         return filter;
     }
 
+    std::unique_ptr<Filter> FilterFactory::createEMAFilter(float alpha) {
+        if (alpha < 0.0f) {
+            alpha = 0.0f;
+        }
+        if (alpha > 1.0f) {
+            alpha = 1.0f;
+        }
+        std::vector<float> feedfrontCoefficients = {alpha};
+        std::vector<float> feedbackCoefficients = {alpha - 1.0f};
+
+        std::unique_ptr<IIRFilter> filter = std::make_unique<IIRFilter>(feedfrontCoefficients, feedbackCoefficients);
+    
+        return filter;
+    }
 
 } // namespace Filters
 

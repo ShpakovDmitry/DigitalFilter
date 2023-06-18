@@ -25,6 +25,7 @@ namespace Filters {
 
             static std::unique_ptr<Filter> createIIRFilter(const std::vector<float> &feedfrontCoefficients,
                                                            const std::vector<float> &feedbackCoefficients);
+            static std::unique_ptr<Filter> createEMAFilter(float alpha);
         private:
     
     };
