@@ -35,7 +35,6 @@ namespace Filters {
             std::vector<float> m_feedbackCoefficients;
             std::deque<float> m_inputDelayLine;
             std::deque<float> m_outputDelayLine;
-            bool m_isReady;
     
     };
 

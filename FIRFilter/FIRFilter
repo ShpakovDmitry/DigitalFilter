@@ -33,7 +33,6 @@ namespace Filters {
         private:
             std::vector<float> m_coefficients;
             std::deque<float> m_delayLine;
-            bool m_isReady;
     
     };
 
