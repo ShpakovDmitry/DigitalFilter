@@ -11,11 +11,13 @@
 #ifndef _FILTER_FACTORY_
 #define _FILTER_FACTORY_
 
-#include "../filters"
+#include "../interface/Filter"
+#include "../FIRFilter/FIRFilter"
+#include <memory>
 
 class FilterFactory {
     public:
-
+        static std::unique_ptr<Filters::Filter> createFIRFilter(const std::vector<float> &coefficients);
     private:
 
 };
