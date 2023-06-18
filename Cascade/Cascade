@@ -13,6 +13,7 @@
 
 #include "../interface/Filter"
 #include <vector>
+#include <memory>
 
 namespace Filters {
 
@@ -26,10 +27,10 @@ namespace Filters {
 
             virtual void reset() override;
 
-            void addFilter(Filter *filter);
+            void addFilter(std::unique_ptr<Filter> filter);
     
         private:
-            std::vector<Filter *> m_filters;
+            std::vector<std::unique_ptr<Filter>> m_filters;
 
     };
 

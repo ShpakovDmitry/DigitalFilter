@@ -15,14 +15,14 @@ namespace Filters {
     Cascade::Cascade() {}
 
     void Cascade::reset() {
-        for (Filter *filter : m_filters) {
+        for (auto &filter : m_filters) {
             filter->reset();
         }
     }
 
     float Cascade::filterSample(float sample) {
         float filteredSample = sample;
-        for (Filter *filter : m_filters) {
+        for (auto &filter : m_filters) {
             filteredSample = filter->filterSample(filteredSample);
         }
         return filteredSample;
@@ -39,8 +39,8 @@ namespace Filters {
         return filteredSamples;
     }
 
-    void Cascade::addFilter(Filter *filter) {
-        m_filters.push_back(filter);
+    void Cascade::addFilter(std::unique_ptr<Filter> filter) {
+        m_filters.push_back(std::move(filter));
     }
 
 }
