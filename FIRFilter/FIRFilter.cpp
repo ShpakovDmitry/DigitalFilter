@@ -35,9 +35,7 @@ namespace Filters {
         m_delayLine.pop_back();
         m_delayLine.push_front(sample);
         for (size_t i = 0; i < m_coefficients.size(); ++i) {
-            if (i < m_delayLine.size()) {
-                sum += m_coefficients[i] * m_delayLine[i];
-            }
+            sum += m_coefficients[i] * m_delayLine[i];
         }
         return sum;
     }

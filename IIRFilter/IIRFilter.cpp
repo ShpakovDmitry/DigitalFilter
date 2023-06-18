@@ -44,16 +44,12 @@ namespace Filters {
         m_inputDelayLine.pop_back();
         m_inputDelayLine.push_front(sample);
         for (size_t i = 0; i < m_feedforwardCoefficients.size(); ++i) {
-            if (i < m_inputDelayLine.size()) {
-                feedforwardSum += m_feedforwardCoefficients[i] * m_inputDelayLine[i];
-            }
+            feedforwardSum += m_feedforwardCoefficients[i] * m_inputDelayLine[i];
         }
 
         float feedbackSum = 0.0f;
         for (size_t i = 0; i < m_feedbackCoefficients.size(); ++i) {
-            if (i < m_outputDelayLine.size()) {
-                feedbackSum += m_feedbackCoefficients[i] * m_outputDelayLine[i];
-            }
+            feedbackSum += m_feedbackCoefficients[i] * m_outputDelayLine[i];
         }
 
         float filteredOutput = feedforwardSum - feedbackSum;
