@@ -20,6 +20,7 @@ namespace Filters {
     class FilterFactory {
         public:
             static std::unique_ptr<Filter> createFIRFilter(const std::vector<float> &coefficients);
+            static std::unique_ptr<Filter> createSimpleMovingAverageFilter(unsigned numSamples);
         private:
     
     };

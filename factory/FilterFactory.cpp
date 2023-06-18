@@ -17,6 +17,16 @@ namespace Filters {
     
         return filter;
     }
+    
+    std::unique_ptr<Filter> FilterFactory::createSimpleMovingAverageFilter(unsigned numSamples) {
+        if (numSamples == 0) {
+            numSamples = 1;
+        }
+        float coefficient = 1.0f/static_cast<float>(numSamples);
+        std::vector<float> SMACoefficients(numSamples, coefficient);
+        std::unique_ptr<FIRFilter> filter = std::make_unique<FIRFilter>(SMACoefficients);
+        return filter;
+    }
 
 } // namespace Filters
 
