@@ -20,9 +20,11 @@ namespace Filters {
 
     class FilterFactory {
         public:
+            //FIR filters
             static std::unique_ptr<Filter> createFIRFilter(const std::vector<float> &coefficients);
             static std::unique_ptr<Filter> createSimpleMovingAverageFilter(unsigned numSamples);
 
+            //IIR filters
             static std::unique_ptr<Filter> createIIRFilter(const std::vector<float> &feedfrontCoefficients,
                                                            const std::vector<float> &feedbackCoefficients);
             static std::unique_ptr<Filter> createEMAFilter(float alpha);
