@@ -19,7 +19,7 @@ namespace Filters {
         return filter;
     }
     
-    std::unique_ptr<Filter> FilterFactory::createSimpleMovingAverageFilter(unsigned numSamples) {
+    std::unique_ptr<Filter> FilterFactory::createSMAFilter(unsigned numSamples) {
         if (numSamples == 0) {
             numSamples = 1;
         }

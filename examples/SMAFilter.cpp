@@ -21,7 +21,7 @@ extern vector<float> getSamples(int num);
 
 int main(int argc, char *argv[]) {
     
-    unique_ptr<Filter> SMAFilter = FilterFactory::createSimpleMovingAverageFilter(SAMPLES_TO_FILTER);
+    unique_ptr<Filter> SMAFilter = FilterFactory::createSMAFilter(SAMPLES_TO_FILTER);
 
     // filter sample by sample
     for (int i = 0; i < SAMPLES_TO_READ_NUM; ++i) {
