@@ -10,9 +10,13 @@
 
 #include "FilterFactory"
 
-std::unique_ptr<Filters::Filter> createFIRFilter(const std::vector<float> &coefficients) {
-    std::unique_ptr<Filters::FIRFilter> filter = std::make_unique<Filters::FIRFilter>(coefficients);
+namespace Filters {
 
-    return filter;
-}
+    std::unique_ptr<Filter> createFIRFilter(const std::vector<float> &coefficients) {
+        std::unique_ptr<FIRFilter> filter = std::make_unique<FIRFilter>(coefficients);
+    
+        return filter;
+    }
+
+} // namespace Filters
 

@@ -15,13 +15,16 @@
 #include "../FIRFilter/FIRFilter"
 #include <memory>
 
-class FilterFactory {
-    public:
-        static std::unique_ptr<Filters::Filter> createFIRFilter(const std::vector<float> &coefficients);
-    private:
+namespace Filters {
 
-};
+    class FilterFactory {
+        public:
+            static std::unique_ptr<Filter> createFIRFilter(const std::vector<float> &coefficients);
+        private:
+    
+    };
 
+} // namespace Filters
 
 #endif//_FILTER_FACTORY_
 
