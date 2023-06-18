@@ -12,6 +12,7 @@
 
 namespace Filters {
 
+    //FIR filters
     std::unique_ptr<Filter> FilterFactory::createFIRFilter(const std::vector<float> &coefficients) {
         std::unique_ptr<FIRFilter> filter = std::make_unique<FIRFilter>(coefficients);
     
@@ -28,6 +29,7 @@ namespace Filters {
         return filter;
     }
 
+    //IIR filters
     std::unique_ptr<Filter> FilterFactory::createIIRFilter(const std::vector<float> &feedfrontCoefficients,
                                                            const std::vector<float> &feedbackCoefficients) {
         std::unique_ptr<IIRFilter> filter = std::make_unique<IIRFilter>(feedfrontCoefficients, feedbackCoefficients);
