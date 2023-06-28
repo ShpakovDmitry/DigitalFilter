@@ -9,7 +9,7 @@ because all filters have the same usage interface. Filters may be cascaded
 to achieve desired goals.
 
 ### Installation
-Simply copy DigitalFilter directory into project directory and add library to
+Simply copy `DigitalFilter` directory into project directory and add library to
 your source file:
 ```cpp
 // ...
@@ -22,25 +22,25 @@ There are two ways to filter the data available:
 * filter one sample at a time
 * filter number of samples at a time
 
-To filter one sample at a time use the
+To filter one sample at a time use the following method:
 ```cpp
 float filterSample(float sample);
 ```
-method. This method takes input `sample` and returns filtered sample.
+This method takes input `sample` and returns filtered sample.
 
-But to filter number of samples at a time use the
+But to filter number of samples at a time use the following method:
 ```cpp
 std::vector<float> filterSamples(const std::vector<float> &samples);
 ```
-method. This method takes the vctor of input samples and return vector of
+This method takes the vector of input samples and returns vector of
 filtered samples.
 
-To reset the filter call
+To reset the filter call the following method:
 ```cpp
 void reset();
 ```
-method. This method just resets the internal delay line, sets it's values to 
-0.0f`.
+This method just resets the internal delay line, i.e., sets it's values to 
+`0.0f`.
 
 Every filter instance is created using `FilterFactory`, which takes all
 neccessary filter initialisation parameters. For example, **S**imple **M**oving
@@ -85,7 +85,28 @@ To filter number of sample at a time use the fiollowing example as a reference:
 
 usign namespace Filters;
 
-extern vector<float> getSamples(unsigned);
+extern vector<float> getSamples(unsigned); // this function returns new sample
+                                           // and should be defined by you
+
+int main(int argc, char *argv[]) {
+    vector<float> coefficients = {0.2f, 0.2f, 0.2f, 0.2f, 0.2f};
+
+    unique_ptr<Filter> filter = FilterFactory::createFIRFilter(coefficients);
+
+    for (int i = 0; i < SAMPLES_TO_READ_NUM; ++i) {
+        float input = getSample();
+        float output = filter->filterSample(input);
+        // use filtered output sample
+    }
+
+    return 0;
+}
+```
+
+To filter number of sample at a time use the following example as a reference:
+```cpp
+// your source code file
+#include "DigitalFilter/filters"
 extern unsigned SAMPLES_TO_READ_NUM;
 
 int main(int argc, char *argv[]) {
@@ -152,10 +173,13 @@ instance and add it to `Cascade` by calling `addFilter()` method.
 
 ### Available filters
 Currently filters available (list will be updated when new filter will be added):
-* FIR filter
-* IIR filter
-* Simple Moving Average (SMA) filter
-* Exponentially Moving Average (EMA) filter
+* FIR
+* IIR
+* Simple Moving Average (SMA)
+* Exponentially Moving Average (EMA)
+
+Methods declarations that create those filters could be found in
+`factory/FilterFactory` file.
 
 ### How to add new filter
 All filters rely on the same interface defined in abstract class located in
@@ -163,10 +187,10 @@ All filters rely on the same interface defined in abstract class located in
 `Filter` class. As example, there are already implemented two types of filters
 **I**nfinite **I**mpulse **R**esponse or **IIR** and **F**inite **I**mpulse
 **R**esponse or **FIR** filters. Those kind of filters cover huge amount of
-filter use cases. After the new king of filter is inherited from base class you
+filter use cases. After the new kind of filter is inherited from base class you
 should add new `static` method to `FilterFactory` class, which actually creates
 the instance of a filter. Example how it is done could be found in `factory`
-directory. and finally include new filter header file into `filters` file.
+directory. and finally include new filter into `filters` header file.
 
 ### Dependencies
 
