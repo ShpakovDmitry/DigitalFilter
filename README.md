@@ -1,5 +1,13 @@
 WIP.
 ### TOC
+1. [About](#about)
+1. [Installation](#installation)
+1. [Usage](#usage)
+1. [Cascading filters](#cascading-filters)
+1. [Available filters](#available-filters)
+1. [How to add new filter](#how-to-add-new-filter)
+1. [Dependencies](#dependencies)
+1. [License](#license)
 
 ### About
 This repository hold various digital filters implementation. The
