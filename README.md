@@ -2,14 +2,14 @@ WIP.
 ### TOC
 
 ### About
-    This repository hold various digital filters implementation. The
+This repository hold various digital filters implementation. The
 architecture is designed in such way that it is easy to extend library when
 new kind of digital filter is added. Also, it is easy to use every filter,
 because all filters have the same usage interface. Filters may be cascaded
 to achieve desired goals.
 
 ### Installation
-    Simply copy DigitalFilter directory into project directory and add library to
+Simply copy DigitalFilter directory into project directory and add library to
 your source file:
 ```cpp
 // ...
@@ -18,7 +18,7 @@ your source file:
 ```
 
 ### Usage
-    There are two ways to filter the data available:
+There are two ways to filter the data available:
 * filter one sample at a time
 * filter number of samples at a time
 
@@ -42,7 +42,7 @@ void reset();
 method. This method just resets the internal delay line, sets it's values to 
 0.0f`.
 
-    Every filter instance is created using `FilterFactory`, which takes all
+Every filter instance is created using `FilterFactory`, which takes all
 neccessary filter initialisation parameters. For example, **S**imple **M**oving
 **A**verage or **SMA** filter on 20 samples to be filtered is created using the
 following `FilterFactory` static method:
@@ -158,7 +158,7 @@ Currently filters available (list will be updated when new filter will be added)
 * Exponentially Moving Average (EMA) filter
 
 ### How to add new filter
-    All filters rely on the same interface defined in abstract class located in
+All filters rely on the same interface defined in abstract class located in
 `interface/Filter` file. To create new filter class you should inherit base
 `Filter` class. As example, there are already implemented two types of filters
 **I**nfinite **I**mpulse **R**esponse or **IIR** and **F**inite **I**mpulse
@@ -175,6 +175,6 @@ The library is dependant on the following libraries: `vector`, `deque`,
 
 ### License
 
-    The library is provided under CC0 terms, meaning that `No Rights are reserved`
+The library is provided under CC0 terms, meaning that `No Rights are reserved`
 and do whatever you want with this library.
 
