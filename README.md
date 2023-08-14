@@ -86,36 +86,13 @@ int main(int argc, char *argv[]) {
 }
 ```
 
-To filter number of sample at a time use the fiollowing example as a reference:
-```cpp
-// your source code file
-#include "DigitalFilter/filters"
-
-usign namespace Filters;
-
-extern vector<float> getSamples(unsigned); // this function returns new sample
-                                           // and should be defined by you
-
-int main(int argc, char *argv[]) {
-    vector<float> coefficients = {0.2f, 0.2f, 0.2f, 0.2f, 0.2f};
-
-    unique_ptr<Filter> filter = FilterFactory::createFIRFilter(coefficients);
-
-    for (int i = 0; i < SAMPLES_TO_READ_NUM; ++i) {
-        float input = getSample();
-        float output = filter->filterSample(input);
-        // use filtered output sample
-    }
-
-    return 0;
-}
-```
-
 To filter number of sample at a time use the following example as a reference:
 ```cpp
 // your source code file
 #include "DigitalFilter/filters"
 extern unsigned SAMPLES_TO_READ_NUM;
+extern vector<float> getSamples(unsigned); // this function returns new samples
+                                           // and should be defined by you
 
 int main(int argc, char *argv[]) {
     vector<float> coefficients = {0.2f, 0.2f, 0.2f, 0.2f, 0.2f};
